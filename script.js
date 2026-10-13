@@ -7,18 +7,17 @@ const emptyMessage = document.getElementById("emptyWatchlist");
 
 const watchlist = {
     movies: [
-        {
-            title: "Harry Potter and the Sorcerer's Stone", genre: "Fantasy", watched: false
-
-        }
+        {title: "Harry Potter and the Sorcerer's Stone", genre: "Fantasy", watched: false},
+        {title: "Tropic Thunder", genre: "Comedy", watched: false}
     ],
 
     toggleWatched(index) {
-        // TODO (Step 4)
+        this.movies[index].watched =
+            !this.movies[index].watched;
     },
 
     removeMovie(index) {
-        // TODO (Step 4)
+        this.movies.splice(index, 1);
     }
 };
 
