@@ -7,8 +7,8 @@ const emptyMessage = document.getElementById("emptyWatchlist");
 
 const watchlist = {
     movies: [
-        {title: "Harry Potter and the Sorcerer's Stone", genre: "Fantasy", watched: false},
-        {title: "Tropic Thunder", genre: "Comedy", watched: false}
+        { title: "Harry Potter and the Sorcerer's Stone", genre: "Fantasy", watched: false },
+        { title: "Tropic Thunder", genre: "Comedy", watched: false }
     ],
 
     toggleWatched(index) {
@@ -70,7 +70,33 @@ function renderMovies() {
 }
 
 form.addEventListener("submit", (event) => {
-    // TODO (Step 5)
+
+    event.preventDefault();
+
+    const title = titleInput.value.trim();
+    const genre = genreSelect.value;
+
+    if (title === "") {
+        message.textContent = "Enter a movie title.";
+        return;
+    }
+
+    if (genre === "") {
+        message.textContent = "Choose a genre.";
+        return;
+    }
+
+    watchlist.movies.push({
+        title: title,
+        genre: genre,
+        watched: false
+    });
+
+    saveMovies();
+    renderMovies();
+
+    message.textContent = "";
+    titleInput.value = "";
 });
 
 loadMovies();
