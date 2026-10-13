@@ -6,10 +6,7 @@ const movieList = document.getElementById("movieCollection");
 const emptyMessage = document.getElementById("emptyWatchlist");
 
 const watchlist = {
-    movies: [
-        { title: "Harry Potter and the Sorcerer's Stone", genre: "Fantasy", watched: false },
-        { title: "Tropic Thunder", genre: "Comedy", watched: false }
-    ],
+    movies: [],
 
     toggleWatched(index) {
         this.movies[index].watched =
@@ -27,17 +24,17 @@ function saveMovies() {
 
 function loadMovies() {
     const saved = localStorage.getItem("movies");
-        if (saved === null){
-            return;
-        }
+    if (saved === null) {
+        return;
+    }
 
-        try {
-            watchlist.movies = JSON.parse(saved);
-        }
+    try {
+        watchlist.movies = JSON.parse(saved);
+    }
 
-        catch (error) {
-            watchlist.movies = [];
-        }
+    catch (error) {
+        watchlist.movies = [];
+    }
 }
 
 function renderMovies() {

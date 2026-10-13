@@ -1,12 +1,90 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #121212;
+    color: #ffffff;
     margin: 0;
     padding: 20px;
 }
 
 header {
     text-align: center;
-    color: #333;
+    background-color: #7a0000;
+    color: #ffd700;
+    padding: 20px;
+    border-bottom: solid #ffd700;
 }
 
+h1 {
+    margin: 0;
+}
+
+.movie_tracker h2 {
+    text-align: center;
+    color: #ffd700;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffd700;
+}
+
+input,
+select {
+    width: 75%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #b22222;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #d62828;
+}
+
+#movieFormMessage {
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+#movieCollection {
+    list-style-type: none;
+    padding: 0;
+}
+
+#movieCollection li {
+    background-color: #2b2b2b;
+    border: 1px solid #555;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+#movieCollection h3 {
+    color: #ffd700;
+    margin-top: 0;
+}
+
+#emptyWatchlist {
+    text-align: center;
+    color: #cccccc;
+    font-style: italic;
+}
+
+.error {
+    color: #ff6666;
+}
