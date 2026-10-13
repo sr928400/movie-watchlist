@@ -6,7 +6,12 @@ const movieList = document.getElementById("movieCollection");
 const emptyMessage = document.getElementById("emptyWatchlist");
 
 const watchlist = {
-    movies: [],
+    movies: [
+        {
+            title: "Harry Potter and the Sorcerer's Stone", genre: "Fantasy", watched: false
+
+        }
+    ],
 
     toggleWatched(index) {
         // TODO (Step 4)
@@ -26,7 +31,43 @@ function loadMovies() {
 }
 
 function renderMovies() {
-    // TODO (Step 3)
+    movieList.replaceChildren();
+    watchlist.movies.forEach((movie, index) => {
+        const card = document.createElement("li");
+
+        const title = document.createElement("h3");
+        title.textContent = movie.title;
+
+        const details = document.createElement("p");
+        details.textContent = movie.genre + " - " + (movie.watched ? "Watched" : "Not watched");
+
+        const toggleButton = document.createElement("button");
+        toggleButton.type = "button";
+        toggleButton.textContent = movie.watched ? "Mark Unwatched" : "Mark Watched";
+        toggleButton.addEventListener("click", () => {
+            watchlist.toggleWatched(index);
+            saveMovies();
+            renderMovies();
+        });
+
+        const removeButton = document.createElement("button");
+        removeButton.type = "button";
+        removeButton.textContent = "Remove";
+        removeButton.addEventListener("click", () => {
+            watchlist.removeMovie(index);
+            saveMovies();
+            renderMovies();
+        });
+
+        card.append(title, details, toggleButton, removeButton);
+        movieList.append(card);
+    });
+
+    if (watchlist.movies.length === 0) {
+        emptyMessage.style.display = "block";
+    } else {
+        emptyMessage.style.display = "none";
+    }
 }
 
 form.addEventListener("submit", (event) => {
